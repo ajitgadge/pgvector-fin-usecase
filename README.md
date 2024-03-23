@@ -144,8 +144,7 @@ plot_flask_5d.py
 
 
 **Advanced Analytical queries**
-
-1: Let's calculate a running total of spending to see how cumulative spending grows as we move through the dataset ordered by income
+**1: Let's calculate a running total of spending to see how cumulative spending grows as we move through the dataset ordered by income**
 
 SELECT
   customer_id,
@@ -156,7 +155,7 @@ SELECT
   SUM(spending) OVER (ORDER BY income) AS running_total_spending
 FROM customer_profiles_fin order by spending limit 10;
 
-2: Ranking Customers by Income
+**2: Ranking Customers by Income**
 We can use the RANK() function to rank customers based on their income, showing the highest earners first.
 
 SELECT
@@ -168,7 +167,7 @@ SELECT
   RANK() OVER (ORDER BY income DESC) AS income_rank
 FROM customer_profiles_fin order by income desc limit 10;
 
-3. Calculating Averages Partitioned by Age Group
+**3. Calculating Averages Partitioned by Age Group**
 To analyze how income and spending vary across different age groups, we can partition the data by age and calculate average income and spending for each group. Assuming age groups are divided as follows: 18-25, 26-35, 36-45, 46-55, 56+.
 
 WITH age_grouped AS (
@@ -196,7 +195,7 @@ SELECT
 FROM age_grouped
 ORDER BY age_group;
 
-4:Percentile Analysis of Risk Tolerance
+**4:Percentile Analysis of Risk Tolerance**
 We might also be interested in understanding the distribution of risk_tolerance scores across our customer base. The PERCENTILE_CONT function can help us find the median risk tolerance score.
 sql
 
@@ -207,7 +206,7 @@ FROM customer_profiles_fin
 GROUP BY risk_tolerance
 ORDER BY risk_tolerance;
 
-5:Cumulative Distribution of Target Saving by Risk Tolerance
+**5:Cumulative Distribution of Target Saving by Risk Tolerance**
 This query aims to show how accumulated target savings are distributed across different levels of risk tolerance. For each level of risk tolerance, we calculate the cumulative sum of target savings and compare these sums across the groups.
 
 SELECT

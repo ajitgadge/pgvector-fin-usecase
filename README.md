@@ -225,6 +225,8 @@ FROM customer_profiles_fin
 ORDER BY risk_tolerance, target_savings_goal desc  limit 10;
 
 
+5D- Graph.
 
+![image](https://github.com/ajitgadge/pgvector-fin-usecase/assets/35986148/e576192f-ffc0-4584-ace4-97bb917f0bfd)
 
 
